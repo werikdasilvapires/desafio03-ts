@@ -18,7 +18,7 @@ const Conta = () => {
     const { id } = useParams()
     const navigate = useNavigate()
 
-    const { isLoggedIn } = useContext(AppContext)
+    const { isLoggedIn, user } = useContext(AppContext)
 
     !isLoggedIn && navigate('/')
 
@@ -49,7 +49,7 @@ const Conta = () => {
                     ) : 
                     (
                         <>
-                            <CardInfo mainContent={`Bem vinda ${userData?.name}`} content={`${actualData.getDay()} / ${actualData.getMonth()} / ${actualData.getFullYear()} ${actualData.getHours()}:${actualData.getMinutes()}`} />
+                            <CardInfo mainContent={`Bem vindo(a) ${user?.name || userData?.name}`} content={`${actualData.getDay()} / ${actualData.getMonth()} / ${actualData.getFullYear()} ${actualData.getHours()}:${actualData.getMinutes()}`} />
                             <CardInfo mainContent='Saldo' content={`R$ ${userData.balance}`}/>
                         </>
                     )
