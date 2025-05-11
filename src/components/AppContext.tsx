@@ -28,7 +28,7 @@ export const AppContextProvider = ({ children }: any) => {
       setIsLoggedIn(login)
       setUser(user)
     }
-  }, [])
+  }, [storage])
   
   return (
     <AppContext.Provider value={{ user, isLoggedIn, setIsLoggedIn, setUser }}>
